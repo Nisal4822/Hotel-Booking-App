@@ -1,4 +1,4 @@
-import { useState } from 'react'
+/*import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -33,3 +33,37 @@ function App() {
 }
 
 export default App
+*/
+
+
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Home from './components/Home';
+import Rooms from './components/Rooms';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+
+const App = () => {
+  return (
+    <Router>
+      <header>
+        <h1>Hotel Booking System</h1>
+        <nav>
+          <Link to="/">Home</Link> | <Link to="/rooms">Rooms</Link> | <Link to="/contact">Contact</Link>
+        </nav>
+      </header>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/rooms" element={<Rooms />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </main>
+      <Footer />
+    </Router>
+  );
+};
+
+export default App;
+
+
